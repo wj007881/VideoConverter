@@ -1,7 +1,8 @@
 # Video Converter (BailianCoding)
+<img width="1182" height="791" alt="image" src="https://github.com/user-attachments/assets/561ad7db-508e-47fa-ab61-4ff0a26a0572" />
 
 A modern video transcoding application built with WinUI 3 for Windows 10/11.
-
+https://github.com/wj007881/VideoConverter
 ## Features
 
 - Batch video conversion with parallel processing
