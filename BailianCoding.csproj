@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>BailianCoding</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <UseWinUI>true</UseWinUI>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon></ApplicationIcon>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <WindowsPackageType>MSIX</WindowsPackageType>
+    <Platform>x64</Platform>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.241114003" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Assets\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="FFmpeg\ffmpeg-2025-11-24-git-c732564d2e-essentials_build\bin\ffmpeg.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>ffmpeg.exe</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="FFmpeg\ffmpeg-2025-11-24-git-c732564d2e-essentials_build\bin\ffprobe.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>ffprobe.exe</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="FFmpeg\ffmpeg-2025-11-24-git-c732564d2e-essentials_build\bin\ffplay.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>ffplay.exe</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(DisableImplicitNamespaceImports)' != 'true'">
+    <Import Include="Microsoft.UI" />
+    <Import Include="Microsoft.UI.Xaml" />
+    <Import Include="Microsoft.UI.Xaml.Controls" />
+    <Import Include="Microsoft.UI.Xaml.Controls.Primitives" />
+    <Import Include="Microsoft.UI.Xaml.Media" />
+    <Import Include="Microsoft.UI.Xaml.Navigation" />
+    <Import Include="Microsoft.UI.Xaml.Shapes" />
+  </ItemGroup>
+</Project>
